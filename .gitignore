@@ -1,0 +1,50 @@
+# Keil uVision files
+*.uvoptx
+*.uvguix.*
+*.uvprojx
+*.bak
+*.crf
+*.d
+*.dep
+*.o
+*.axf
+*.lnp
+*.lst
+*.map
+*.build_log.htm
+
+# Debug files
+*.elf
+*.hex
+*.bin
+*.dbg
+*.sim
+
+# Build folders
+build/
+Debug/
+Release/
+Objects/
+Listings/
+
+# IDE settings
+.vs/
+.vscode/
+.idea/
+
+# User-specific files
+*.suo
+*.user
+*.sdf
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Compiled files
+*.log
+*.tmp
+*.stackdump
+
+# FreeRTOS порт может создавать
+portmacro.h.bak
