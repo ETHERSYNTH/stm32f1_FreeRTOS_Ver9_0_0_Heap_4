@@ -4,31 +4,9 @@
 #include "queue.h"
 #include "misc.h"
 #include "beep.h"
+#include "Structure_learn.h"
 #include <stdio.h>
 
-/*
-	uint16_t address;
-	uint16_t *data;
-	enum{
-		COIL,
-		DISCRETE,
-		INPUT,
-		HOLDING}type;
-*/
-
-struct modbus_reg{
-	uint16_t address;
-	uint16_t *data;
-	enum{
-		COIL,
-		DISCRETE,
-		INPUT,
-		HOLDING}type;
-	uint8_t size;
-};	
-
-struct modbus_reg modbus_reg_var;
-volatile uint32_t offset;
 
 // Prototypes
 void LED0_Task(void * pvParameters);
@@ -44,21 +22,7 @@ static QueueHandle_t button_event;
 int main(void)
 {
 	
-	volatile uint32_t sizestr = sizeof(modbus_reg_var);
-	
-	struct modbus_reg reg;
-	
-	offset = (char*)&reg.address - (char*)&reg;  // 0
-	offset = (char*)&reg.data - (char*)&reg;     // 4
-	offset = (char*)&reg.type - (char*)&reg;     // 8
-	offset = (char*)&reg.size - (char*)&reg;     // 9
-
-/*	
-Bytes: 0   1   2   3   4   5   6   7   8   9   10  11
-      [address][pad][   data ptr   ][type][size][pad]
-	
-	Optimization Level0 [-O 0]
-*/
+	structure_learn();
 	
 	task1_init();
 	
